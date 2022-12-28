@@ -45,7 +45,7 @@ namespace BinarySearchTree
             }
         }
 
-    public void insert(string element)/*Insert a node in the binary search tree*/
+        public void insert(string element)/*Insert a node in the binary search tree*/
         {
             Node tmp, parent = null, currentNode = null;
             search(element, ref parent, ref currentNode);
@@ -70,6 +70,20 @@ namespace BinarySearchTree
                 {
                     parent.rightchild = tmp;
                 }
+            }
+        }
+        public void inorder(Node ptr)
+        {
+            if (ROOT == null)
+            {
+                Console.WriteLine("Tree is empty");
+                return;
+            }
+            if (ptr != null)
+            {
+                inorder(ptr.leftchild);
+                Console.WriteLine(ptr.info + "");
+                inorder(ptr.rightchild);
             }
         }
     }
